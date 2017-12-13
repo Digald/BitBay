@@ -1,31 +1,23 @@
-
-
 .input-group {
-	padding-top: 15px;
+    padding-top: 15px;
 }
 
 .carousel {
-    border-radius: 55px 55px 55px 55px;
+    /*border-radius: 55px 55px 55px 55px;*/
     overflow: hidden;
 }
 
 .carousel .carousel-inner img {
-	width: 100%;
-	height: 20em;
-	object-fit: cover;
-	overflow: hidden;
-
+    width: 100%;
+    height: 20em;
+    object-fit: cover;
+    overflow: hidden;
 }
-
 
 h1 {
-	text-align: center;
- 	font-family: 'ROBOTECHGPRegular'; 
-    font-weight: bold; 
-    font-style: normal; 
-	font-size: 110px;
-	
+    text-align: center;
+    font-family: 'ROBOTECHGPRegular';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 110px;
 }
-
-
-
