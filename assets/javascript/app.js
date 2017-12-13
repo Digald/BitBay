@@ -1,3 +1,6 @@
 $(document).ready(function() {
-	// your code goes within the doc ready
+    // all of our code goes within the doc ready
+
+    // blockchain API ajax request chain
+    // $.when().then();
 });
