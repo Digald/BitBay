@@ -28,7 +28,15 @@ $(document).ready(function() {
         },
         options: {
             responsive: true,
-            maintainAspectRation: true
+            maintainAspectRation: true,
+            scales: {
+            	yAxes: [{
+            		scaleLabel: {
+            			display: true,
+            			labelString: 'USD'
+            		}
+            	}],
+            }
         }
     });
 
@@ -38,13 +46,44 @@ $(document).ready(function() {
         data: {
             labels: ['Thing1', 'Thing2', 'Thing3'],
             datasets: [{
-            	label: "Things to Scale",
-            	data: [34, 23, 67]
+                label: "Things to Scale",
+                data: [34, 23, 67]
             }]
         },
         options: {
-        	responsive: true,
-        	maintainAspectRation: true
+            responsive: true,
+            maintainAspectRation: true
+        }
+    });
+
+    var chart3 = $("#bubbleChart");
+    var bubbleChar = new Chart(chart3, {
+        type: 'bubble',
+        data: {
+            labels: ['Time1', 'Time2', 'Time3', 'Time4'],
+            datasets: [{
+                labels: "Time vs Trans/day vs Trans Amt",
+                data: [{
+                        x: 3,
+                        y: 4,
+                        r: 4
+                    },
+                    {
+                    	x: 24,
+                    	y: 15,
+                    	r: 45
+                    },
+                    {
+                        x: 43,
+                        y: 34,
+                        r: 23
+                    }
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRation: true
         }
     });
 
