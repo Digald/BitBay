@@ -14,9 +14,9 @@ $(document).ready(function() {
         "appid=GordonBl-BitBay-PRD-85d7504c4-e49e3c45&" + 
         "version=1015&" + 
         "siteid=0&" + 
-        "QueryKeywords=&" + 
+        "QueryKeywords=" + 
         queryKeyword + 
-        "ItemSort=BestMatch&" + 
+        "&ItemSort=BestMatch&" + 
         "responseencoding=JSON&" + 
         "MaxEntries=3&" +
         "callbackname=jsonpcallback";
