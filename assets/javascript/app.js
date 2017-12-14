@@ -14,28 +14,34 @@ $(document).ready(function() {
     // ).then(function() {
     // 	Pass json response to variables
     // 	use varibles in chart building
+    Chart.defaults.scale.ticks.beginAtZero = true;
     var chart1 = $("#lineChart");
     console.log(Chart.defaults);
-    Chart.defaults.scale.ticks.beginAtZero = true;
     var lineChart = new Chart(chart1, {
         type: 'line',
         data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr'],
             datasets: [{
                 label: "Numbers Per Month",
+                backgroundColor: "rgba(0, 255, 0, 0.3)",
+                borderColor: "rgba(0, 255, 0, 1)",
                 data: [2, 10, 4, 50]
             }]
         },
         options: {
             responsive: true,
             maintainAspectRation: true,
+            title: {
+                display: true,
+                text: "Market Data"
+            },
             scales: {
-            	yAxes: [{
-            		scaleLabel: {
-            			display: true,
-            			labelString: 'USD'
-            		}
-            	}],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'USD'
+                    }
+                }],
             }
         }
     });
@@ -52,7 +58,11 @@ $(document).ready(function() {
         },
         options: {
             responsive: true,
-            maintainAspectRation: true
+            maintainAspectRation: true,
+            title: {
+                display: true,
+                text: "Hash Rates of Popular Mining Pools (Higher is better)"
+            }
         }
     });
 
@@ -69,9 +79,9 @@ $(document).ready(function() {
                         r: 4
                     },
                     {
-                    	x: 24,
-                    	y: 15,
-                    	r: 45
+                        x: 24,
+                        y: 15,
+                        r: 45
                     },
                     {
                         x: 43,
@@ -83,7 +93,15 @@ $(document).ready(function() {
         },
         options: {
             responsive: true,
-            maintainAspectRation: true
+            maintainAspectRation: true,
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: '# of Transactions per Day'
+                    }
+                }]
+            }
         }
     });
 
