@@ -21,3 +21,8 @@ h1 {
     font-style: normal;
     font-size: 110px;
 }
+
+.chart {
+  display: block;
+  width: 100%;
+}
