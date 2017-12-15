@@ -1,7 +1,6 @@
 $(document).ready(function() {
-    // all of our code goes within the doc ready
 
-    //--------------------Blockchain API GET request-------------
+    //------------------------------------------------Blockchain API GET request---------------
     // Chain all ajax request inside of $.when()
     // Manipulate all responses inside of .then(function(){});
     // $.when(
@@ -20,12 +19,12 @@ $(document).ready(function() {
     var lineChart = new Chart(chart1, {
         type: 'line',
         data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+            labels: ['First', 'Second', 'Third', 'Fourth'],
             datasets: [{
                 label: "Numbers Per Month",
                 backgroundColor: "rgba(0, 255, 0, 0.3)",
                 borderColor: "rgba(0, 255, 0, 1)",
-                data: [2, 10, 4, 50]
+                data: [2, 10, 4, 15]
             }]
         },
         options: {
