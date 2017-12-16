@@ -145,20 +145,18 @@ $(document).ready(function() {
       var myChart = new Chart(mainChart, {
         type: 'pie',
         data: {
-          labels: ['OK', 'WARNING', 'CRITICAL'],
+          // labels: ['OK', 'WARNING'],
           datasets: [{
             text: "1 BTC",
-            label: '# of Tomatoes',
-            data: [12, 19, 3],
+            // label: '# of Tomatoes',
+            data: [10, 100],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.5)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)'
+              'rgba(255, 153, 0, 0.5)',
+              'rgba(255, 153, 0, 1)'
             ],
             borderColor: [
               'rgba(255,99,132,1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)'
+              'rgba(54, 162, 235, 1)'
             ],
             borderWidth: 1
           }]
@@ -169,7 +167,7 @@ $(document).ready(function() {
           maintainAspectRatio: true,
           elements: {
             center: {
-              text: "1 BTC = 14000 USD"
+              text: "1 BTC = 14,000 USD"
             }
           },
           animation: {
