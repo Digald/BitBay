@@ -1,5 +1,5 @@
 function jsonpcallback(data) {
-        console.log(data);
+        console.log(data.Item);
       }
 
 $(document).ready(function() {
