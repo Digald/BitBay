@@ -1,5 +1,31 @@
+// eBay API call
+
 function jsonpcallback(data) {
         console.log(data.Item);
+
+        // Item 1
+        var urlOne = data.Item[0].ViewItemURLForNaturalSearch;
+        var titleOne = data.Item[0].Title;
+        var priceOne = data.Item[0].ConvertedCurrentPrice.Value;
+          console.log(urlOne);
+          console.log(titleOne);
+          console.log(priceOne);
+
+      // Item 2
+        var urlTwo = data.Item[1].ViewItemURLForNaturalSearch;
+        var titleTwo = data.Item[1].Title;
+        var priceTwo = data.Item[1].ConvertedCurrentPrice.Value;
+          console.log(urlTwo);
+          console.log(titleTwo);
+          console.log(priceTwo);
+
+      // Item 3
+        var urlThree = data.Item[2].ViewItemURLForNaturalSearch;
+        var titleThree = data.Item[2].Title;
+        var priceThree = data.Item[2].ConvertedCurrentPrice.Value;
+          console.log(urlThree);
+          console.log(titleThree);
+          console.log(priceThree);
       }
 
 $(document).ready(function() {
@@ -25,20 +51,9 @@ $(document).ready(function() {
           url: queryURL,
           method: "GET",
           dataType: "jsonp"
-      })
-        .done(function(response) {
-          console.log(response);
-      })
-        .fail(function(error) {
-        console.log(error);
       });
-    
-          // var results = response.data;
 
-      //     for (var i = 0; i < results.length; i++) {
       //       var gifDiv = $("<div class='item'>");
-
-      //       var rating = results[i].rating;
 
       //       var p = $("<p>").text("Rating: " + rating);
 
@@ -49,7 +64,6 @@ $(document).ready(function() {
       //       gifDiv.prepend(bandImage);
 
       //       $("#result1").prepend(gifDiv);
-      //     }
 
       });
 
