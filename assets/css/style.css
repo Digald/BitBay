@@ -3,7 +3,7 @@
 }
 
 .carousel {
-    /*border-radius: 55px 55px 55px 55px;*/
+    /* border-radius: 55px 55px 55px 55px; */
     overflow: hidden;
 }
 
@@ -20,9 +20,4 @@ h1 {
     font-weight: bold;
     font-style: normal;
     font-size: 110px;
-}
-
-.chart {
-  display: block;
-  width: 100%;
 }

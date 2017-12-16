@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
   //--------------------Blockchain API GET request-------------
   // Chain all ajax request inside of $.when()
@@ -21,39 +21,39 @@ $(document).ready(function () {
     $.ajax({
       url: bitQueryURL,
       method: 'GET',
-    }).done(function (json1) {
+    }).done(function(json1) {
       gStats = json1;
     }),
     //Price graph
     $.ajax({
       url: priceGraphURL,
       method: 'GET',
-    }).done(function (json2) {
+    }).done(function(json2) {
       priceGraph = json2;
     }),
     //Hash pools vs hashrate
     $.ajax({
       url: hashURL,
       method: 'GET',
-    }).done(function (json3) {
+    }).done(function(json3) {
       hashPool = json3;
     }),
     //Transactions count linegraph
     $.ajax({
       url: transactionURL,
       method: 'GET',
-    }).done(function (json4) {
+    }).done(function(json4) {
       transactionCount = json4;
     }),
     // Output value linegraph
     $.ajax({
       url: outputURL,
       method: 'GET',
-    }).done(function (json5) {
+    }).done(function(json5) {
       outputValue = json5;
     })
     //Function converts JSON date outputs into a usable format
-  ).then(function () {
+  ).then(function() {
     // how to convert unix time to any format for chart axis
     // var time = moment.unix(1513140162).format("MMM Do");
     var dateRange = [];
@@ -65,130 +65,158 @@ $(document).ready(function () {
 
     // chartJS work goes here
   });
+  // carousel options
+  $(".carousel").carousel({
+    interval: 5000
+  })
 
-  // Chart.js work
-  Chart.defaults.scale.ticks.beginAtZero = true;
-  Chart.defaults.global.tooltips = true;
-  var mainChart = $('#mainChart');
-  var doughnutChart = new Chart(mainChart, {
-    type: 'doughnut',
-    data: {
-      lables: ['orange', 'red', 'blue'],
-      datasets: {
-        backgroundColor: ['#FF0000', '#00FF00', '#0000FF'],
-        data: [10, 20, 30],
-      },
-    },
-    options: {
-      responsive: true,
-      maintainAspectRation: true,
-      title: {
-        display: true,
-        text: 'BTC Value',
-      },
-    },
-  });
+  function generateChart() {
+    // Chart.js work
+    Chart.defaults.scale.ticks.beginAtZero = true;
+    Chart.defaults.global.tooltips.enabled = true;
+    Chart.defaults.global.animation.duration = 2000;
+    Chart.defaults.global.animation.easing = 'easeInOutQuart';
 
-  var chart1 = $('#lineChart');
-  var lineChart = new Chart(chart1, {
-    type: 'line',
-    data: {
-      labels: ['First', 'Second', 'Third', 'Fourth'],
-      datasets: [{
-        // label: "Numbers Per Month",
-        backgroundColor: 'rgba(0, 255, 0, 0.3)',
-        borderColor: 'rgba(0, 255, 0, 1)',
-        data: [2, 10, 4, 15],
-      },],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRation: true,
-      title: {
-        display: true,
-        text: 'Market Data',
-      },
-      legend: {
-        display: false,
-      },
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'USD',
-          },
-        },],
-      },
-    },
-  });
-
-  var chart2 = $('#polarChart');
-  var polarArea = new Chart(chart2, {
-    type: 'polarArea',
-    data: {
-      labels: ['Thing1', 'Thing2', 'Thing3'],
-      datasets: [{
-        label: 'Things to Scale',
-        data: [34, 23, 67],
-      },]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRation: true,
-      title: {
-        display: true,
-        text: "Hash Rates of Popular Mining Pools (Higher is better)"
-      }
-    }
-  });
-
-  var chart3 = $("#bubbleChart");
-  var bubbleChar = new Chart(chart3, {
-    type: 'bubble',
-    data: {
-      labels: ['Time1', 'Time2', 'Time3', 'Time4'],
-      datasets: [{
-        label: "Relative Transaction Size",
-        data: [{
-            x: 3,
-            y: 4,
-            r: 4
-          },
-          {
-            x: 24,
-            y: 15,
-            r: 45
-          },
-          {
-            x: 43,
-            y: 34,
-            r: 23
-          }
-        ]
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRation: true,
-      title: {
-        display: true,
-        text: "Amount of Transactions per Day"
-      },
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: '# of Transactions per Day'
-          }
+    var mainChart = $('#mainChart');
+    var myChart = new Chart(mainChart, {
+      type: 'pie',
+      data: {
+        labels: ['OK', 'WARNING', 'CRITICAL'],
+        datasets: [{
+          label: '# of Tomatoes',
+          data: [12, 19, 3],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)'
+          ],
+          borderWidth: 1
         }]
+      },
+      options: {
+        cutoutPercentage: 40,
+        responsive: true,
+        maintainAspectRatio: true
       }
-    }
-  });
+    });
 
-  $("#carousel").on('slid.bs.carousel', function() {
-    doughnutChart.render();
-    lineChart.render();
-  });
+    var chart1 = $('#lineChart');
+    var lineChart = new Chart(chart1, {
+      type: 'line',
+      data: {
+        labels: ['First', 'Second', 'Third', 'Fourth'],
+        datasets: [{
+          // label: "Numbers Per Month",
+          backgroundColor: 'rgba(0, 255, 0, 0.3)',
+          borderColor: 'rgba(0, 255, 0, 1)',
+          data: [2, 10, 4, 15],
+        }, ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        title: {
+          display: true,
+          text: 'Market Data',
+        },
+        legend: {
+          display: false,
+        },
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'USD',
+            },
+          }, ],
+        },
+      },
+    });
 
+    var chart2 = $('#polarChart');
+    var polarArea = new Chart(chart2, {
+      type: 'bar',
+      data: {
+        labels: ['Thing1', 'Thing2', 'Thing3'],
+        datasets: [{
+          label: 'Things to Scale',
+          data: [34, 23, 67],
+        }, ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        title: {
+          display: true,
+          text: "Hash Rates of Popular Mining Pools (Higher is better)"
+        }
+      }
+    });
+
+    //
+    var chart3 = $("#bubbleChart");
+    var bubbleChar = new Chart(chart3, {
+      type: 'bubble',
+      data: {
+        labels: ['Time1', 'Time2', 'Time3', 'Time4'],
+        datasets: [{
+          label: "Relative Transaction Size",
+          data: [{
+              x: 3,
+              y: 4,
+              r: 4
+            },
+            {
+              x: 24,
+              y: 15,
+              r: 45
+            },
+            {
+              x: 43,
+              y: 34,
+              r: 23
+            }
+          ]
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        title: {
+          display: true,
+          text: "Amount of Transactions per Day"
+        },
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: '# of Transactions per Day'
+            }
+          }]
+        }
+      }
+    });
+  }
+  generateChart();
+
+  function resetChart() {
+    //Reset chart data
+    $('canvas').remove();
+    $('.item4').prepend('<canvas id="bubbleChart"></canvas>');
+    $('.item3').prepend('<canvas id="polarChart"></canvas>');
+    $('.item2').prepend('<canvas id="lineChart"></canvas>');
+    $('.item1').prepend('<canvas id="mainChart"></canvas>');
+
+    generateChart();
+  }
+
+  $('#carouselExampleControls').on('slid.bs.carousel', function() {
+    resetChart();
+  });
 
 }); // end doc ready function

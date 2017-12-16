@@ -12,11 +12,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Moment.js Link -->
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-  <!-- Chart.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
   <!-- bootstrap.js link -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
   <!-- Firebase link -->
   <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
   <!-- Our Javascript Link -->
@@ -31,50 +31,54 @@
   <div class="container">
     <h1><strong>BitBay</strong></h1>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="0"> <!-- Change interval back after done -->
-        <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active">
-            <canvas id="mainChart"></canvas>
-            <!-- <img class="d-block img-fluid" src="assets/images/placeholder.jpg" alt="First slide">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active item1">
+          <canvas id="mainChart"></canvas>
+          <!-- <img class="d-block img-fluid" src="assets/images/placeholder.jpg" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
               <h3>Placeholder</h3>
               <p>Placeholder</p>
             </div> -->
-          </div>
-          <div class="carousel-item">
-            <canvas id="lineChart"></canvas>
-            <!-- <img class="d-block img-fluid" src="assets/images/placeholder1.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item item2">
+          <canvas id="lineChart"></canvas>
+          <!-- <img class="d-block img-fluid" src="assets/images/placeholder1.jpg" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
               <h3>Placeholder</h3>
               <p>Placeholder</p>
             </div> -->
-          </div>
-          <div class="carousel-item">
-            <canvas id="polarChart"></canvas>
-            <!-- <img class="d-block img-fluid" src="assets/images/placeholder2.jpg" alt="Third slide">
+        </div>
+        <div class="carousel-item item3">
+          <canvas id="polarChart"></canvas>
+          <!-- <img class="d-block img-fluid" src="assets/images/placeholder2.jpg" alt="Third slide">
             <div class="carousel-caption d-none d-md-block">
               <h3>Placeholder</h3>
               <p>Placeholder</p>
             </div> -->
-          </div>
-          <div class="carousel-item">
-            <canvas id="bubbleChart"></canvas>
-            <!-- <img class="d-block img-fluid" src="assets/images/placeholder3.jpg" alt="Fourth slide">
+        </div>
+        <div class="carousel-item item4">
+          <canvas id="bubbleChart"></canvas>
+          <!-- <img class="d-block img-fluid" src="assets/images/placeholder3.jpg" alt="Fourth slide">
             <div class="carousel-caption d-none d-md-block">
               <h3>Placeholder</h3>
               <p>Placeholder</p>
             </div> -->
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                             </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                             </a>
-        </div>
-      </div>
     </div>
 
     <section>
