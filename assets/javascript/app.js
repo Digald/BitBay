@@ -3,7 +3,7 @@
 function jsonpcallback(data) {
         console.log(data.Item);
 
-        // Item 1
+        // Item 1 data
         var urlOne = data.Item[0].ViewItemURLForNaturalSearch;
         var titleOne = data.Item[0].Title;
         var priceOne = data.Item[0].ConvertedCurrentPrice.Value;
@@ -11,7 +11,7 @@ function jsonpcallback(data) {
           console.log(titleOne);
           console.log(priceOne);
 
-      // Item 2
+      // Item 2 data
         var urlTwo = data.Item[1].ViewItemURLForNaturalSearch;
         var titleTwo = data.Item[1].Title;
         var priceTwo = data.Item[1].ConvertedCurrentPrice.Value;
@@ -19,7 +19,7 @@ function jsonpcallback(data) {
           console.log(titleTwo);
           console.log(priceTwo);
 
-      // Item 3
+      // Item 3 data
         var urlThree = data.Item[2].ViewItemURLForNaturalSearch;
         var titleThree = data.Item[2].Title;
         var priceThree = data.Item[2].ConvertedCurrentPrice.Value;
@@ -53,36 +53,6 @@ $(document).ready(function() {
           dataType: "jsonp"
       });
 
-      //       var gifDiv = $("<div class='item'>");
+  });
 
-      //       var p = $("<p>").text("Rating: " + rating);
-
-      //       var bandImage = $("<img>");
-      //       bandImage.attr("src", results[i].images.fixed_height.url);
-
-      //       gifDiv.prepend(p);
-      //       gifDiv.prepend(bandImage);
-
-      //       $("#result1").prepend(gifDiv);
-
-      });
-
-    });
-
-//--------------------Blockchain API GET request-------------
-// Chain all ajax request inside of $.when()
-// Manipulate all responses inside of .then(function(){});
-    // $.when(
-    // 	Ajax request 1
-
-    // 	Ajax request 2
-
-    // 	Ajax request 3
-
-    // ).then(function() {
-    // 	Pass json response to variables
-    // 	use varibles in chart building
-    // });
-
-    // how to convert unix time to any format for chart axis
-    // var time = moment.unix(1513140162).format("MMM Do");
+});
