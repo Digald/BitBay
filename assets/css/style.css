@@ -61,6 +61,25 @@ body {
 
 .row {
     padding: 10px;
+    
+}
+
+#result-1 {
+    height: 200px;
+    margin: 10px;
+    background-color: gold;
+}
+
+#result-2 {
+    height: 200px;
+    margin: 10px;
+    background-color: gold;
+}
+
+#result-3 {
+    height: 200px;
+    margin: 10px;
+    background-color: gold;
 }
 
 #bitcoin-news-widget {
