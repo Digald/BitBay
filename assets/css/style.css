@@ -1,3 +1,7 @@
+.container {
+    box-sizing: border-box;
+    padding: 10px;
+}
 
 body {
     width: 100%;
@@ -13,7 +17,7 @@ body {
 }
 
 #logo-element {
-    height: 20px;
+
 }
 
 #logo-image {
@@ -37,18 +41,19 @@ body {
 	overflow: hidden;
 }
 
-#app-name-navbar {
+#app-name-element {
 	text-align: center;
  	font-family: 'ROBOTECHGPRegular'; 
     font-weight: bold; 
     font-style: normal;
-    height: 240px;
+    height: 200px;
 }
 
 #app-name {
     font-size: 220px;
+    font-weight: bold;
     position: relative;
-    bottom: 40px;
+    bottom: 90px;
 }
 
 
