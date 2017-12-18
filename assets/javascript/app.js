@@ -1,4 +1,4 @@
-// eBay API call
+//--------------------------------------Begin eBay API JSON callback-------------------
 
 function jsonpcallback(data) {
         console.log(data.Item);
@@ -27,10 +27,11 @@ function jsonpcallback(data) {
           console.log(titleThree);
           console.log(priceThree);
       }
+//--------------------------------------End eBay API JSON callback-----------------------
 
 $(document).ready(function() {
 
-  //---------------------------------------Blockchain API GET request-------------
+  //------------------------------------Begin Blockchain API GET request-----------------
     // Chain all ajax request inside of $.when()
     // Manipulate all responses inside of .then(function(){});
     //API URL links
@@ -338,8 +339,9 @@ $(document).ready(function() {
         });
 
     }); // end of $.when().then() function
+  //----------------------End Blockchain API GET request----------------------
 
-
+  //----------------------Begin eBay API GET request on click function--------
 	$("#search-button").on("click", function() {
 
       var queryKeyword = $("#user-input").val().trim();
@@ -363,5 +365,7 @@ $(document).ready(function() {
       });
 
   });
+  //--------------------End eBay API GET request on click function--------------
 
-}); // end doc ready function
+});
+// end doc ready function
