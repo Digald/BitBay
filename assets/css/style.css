@@ -1,9 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 .container {
     padding: 10px;
 }
 
 body {
-    box-sizing: border-box;
     width: 100%;
     height: 100%;
     background-color: #042E2C;
@@ -25,18 +28,9 @@ body {
 	width: 100px;
 }
 
-.input-group {
-	padding-top: 15px;
-}
-
-.carousel {
-    /* border-radius: 55px 55px 55px 55px; */
-    overflow: hidden;
-}
-
 #app-name-element {
-	text-align: center;
- 	font-family: 'ROBOTECHGPRegular'; 
+    text-align: center;
+    font-family: 'ROBOTECHGPRegular'; 
     font-weight: bold; 
     font-style: normal;
     height: 200px;
@@ -46,7 +40,12 @@ body {
     font-size: 220px;
     font-weight: bold;
     position: relative;
-    bottom: 90px;
+    bottom: 120px;
+}
+
+.carousel {
+    /* border-radius: 55px 55px 55px 55px; */
+    overflow: hidden;
 }
 
 .carousel .carousel-inner img {
@@ -56,8 +55,16 @@ body {
     overflow: hidden;
 }
 
+.input-group {
+    padding-top: 15px;
+}
+
 .row {
     padding: 10px;
 }
 
+#bitcoin-news-widget {
+    float: right;
+    width: 150px;
+}
 
