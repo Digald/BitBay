@@ -341,7 +341,7 @@ $(document).ready(function() {
     }); // end of $.when().then() function
   //----------------------End Blockchain API GET request----------------------
 
-  //----------------------Begin eBay API GET request on click function--------
+  //----------------------Begin eBay API GET request on click function------
 	$("#search-button").on("click", function() {
 
       var queryKeyword = $("#user-input").val().trim();
@@ -357,6 +357,8 @@ $(document).ready(function() {
         "responseencoding=JSON&" + 
         "MaxEntries=3&" +
         "callbackname=jsonpcallback";
+
+        $("#user-input").val("");
 
       $.ajax({
           url: queryURL,
