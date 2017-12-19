@@ -74,14 +74,6 @@ body {
   flex-wrap: wrap;
 }
 
-#bitcoin-news-widget {
-  width: 50%;
-}
-
-#bitcoin-forum-widget {
-  width: 50%;
-}
-
 #footer {
   bottom: 0;
   width: 100%;
