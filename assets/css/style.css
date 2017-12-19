@@ -100,11 +100,13 @@ body {
 }
 
 #news-widget {
-  max-width: 50%;
+  width: 50%;
+  min-width: 200px;
 }
 
 #forum-widget {
-  max-width: 50%;
+  width: 50%;
+  min-width: 200px;
 }
 
 #footer {
