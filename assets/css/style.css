@@ -5,7 +5,6 @@
 html {
   min-height: 100%;
   position: relative;
-
 }
 
 body {
@@ -58,6 +57,14 @@ body {
 
 .charts {
   margin-bottom: 30px;
+}
+
+#bitcoin-news-widget {
+  width: 100%;
+}
+
+#bitcoin-forum-widget {
+  width: 100%;
 }
 
 #searchbar-section {
