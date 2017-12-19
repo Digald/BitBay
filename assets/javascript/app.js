@@ -3,7 +3,7 @@
 function jsonpcallback(data) {
         console.log(data.Item);
 
-        // Item 1 data
+    // Item 1 data
         var urlOne = data.Item[0].ViewItemURLForNaturalSearch;
         var titleOne = data.Item[0].Title;
         var priceOne = data.Item[0].ConvertedCurrentPrice.Value;
@@ -11,7 +11,7 @@ function jsonpcallback(data) {
           console.log(titleOne);
           console.log(priceOne);
 
-      // Item 2 data
+    // Item 2 data
         var urlTwo = data.Item[1].ViewItemURLForNaturalSearch;
         var titleTwo = data.Item[1].Title;
         var priceTwo = data.Item[1].ConvertedCurrentPrice.Value;
@@ -19,7 +19,7 @@ function jsonpcallback(data) {
           console.log(titleTwo);
           console.log(priceTwo);
 
-      // Item 3 data
+    // Item 3 data
         var urlThree = data.Item[2].ViewItemURLForNaturalSearch;
         var titleThree = data.Item[2].Title;
         var priceThree = data.Item[2].ConvertedCurrentPrice.Value;
@@ -27,10 +27,17 @@ function jsonpcallback(data) {
           console.log(titleThree);
           console.log(priceThree);
 
-        $("#result-1").show();
-        $("#result-2").show();
-        $("#result-3").show();
-        
+    //Results Container jQuery
+        $("#result-1").show().html("<p>" + titleOne + "</p>");
+        $("#result-2").show().html("<p>" + titleTwo + "</p>");
+        $("#result-3").show().html("<p>" + titleThree + "</p>");
+        $("#result-1").append("<p>" + urlOne + "</p>");
+        $("#result-1").append("<p>" + priceOne + "</p>");
+        $("#result-2").append("<p>" + urlTwo + "</p>");
+        $("#result-2").append("<p>" + priceTwo + "</p>");
+        $("#result-3").append("<p>" + urlThree + "</p>");
+        $("#result-3").append("<p>" + priceThree + "</p>");
+
       }
 
 //--------------------------------------End eBay API JSON callback-----------------------
