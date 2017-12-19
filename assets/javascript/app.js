@@ -358,6 +358,7 @@ $(document).ready(function() {
         "MaxEntries=3&" +
         "callbackname=jsonpcallback";
 
+        // Clear input on click event
         $("#user-input").val("");
 
       $.ajax({
