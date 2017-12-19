@@ -22,7 +22,7 @@ body {
 }
 
 .input-group {
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .carousel {
@@ -63,15 +63,48 @@ body {
   margin-bottom: 10px;
 }
 
+#results-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 #result-1 {
   background-color: black;
-  color: white;
+  opacity: 0.5;
+  height: 200px;
+  width: 33%;
+  min-width: 200px;
+}
+
+#result-2 {
+  background-color: black;
+  opacity: 0.5;
+  height: 200px;
+  width: 33%;
+  min-width: 200px;
+}
+
+#result-3 {
+  background-color: black;
+  opacity: 0.5;
+  height: 200px;
+  width: 33%;
+  min-width: 200px;
 }
 
 #widget-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+#news-widget {
+  max-width: 50%;
+}
+
+#forum-widget {
+  max-width: 50%;
 }
 
 #footer {
