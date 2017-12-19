@@ -59,16 +59,20 @@ body {
   margin-bottom: 30px;
 }
 
+#searchbar-section {
+  margin-bottom: 10px;
+}
+
+#widget-container {
+  display: flex;
+}
+
 #bitcoin-news-widget {
-  width: 100%;
+  width: 50%;
 }
 
 #bitcoin-forum-widget {
-  width: 100%;
-}
-
-#searchbar-section {
-  margin-bottom: 10px;
+  width: 50%;
 }
 
 #footer {

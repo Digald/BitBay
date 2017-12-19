@@ -134,14 +134,16 @@
       </div>
     </div>
       <!-- Articles and widgets section -->
-        <section>
-            <div class="searchResults" id="searchResults">
-                <div class="row">
-                  <div class="btcwdgt-news" id="bitcoin-news-widget" bw-entries="5" bw-theme="dark"></div>
-                  <div class="btcwdgt-forum" id="bitcoin-forum-widget" bw-entries="5" bw-theme="dark"></div>
-                </div>
-            </div>
-        </section>
+        <div class="container" id="widget-container">
+              <div class="row">
+                  <div class="col-sm" id="bitcoin-news-widget">
+                    <div class="btcwdgt-news" bw-entries="5" bw-theme="dark"></div>
+                  </div>
+                  <div class="col-sm" id="bitcoin-forum-widget">
+                    <div class="btcwdgt-forum" bw-entries="5" bw-theme="dark"></div>
+                  </div>
+              </div>
+        </div>
       <!-- End articles and widgets column -->
   </div>
   <!-- end container -->
