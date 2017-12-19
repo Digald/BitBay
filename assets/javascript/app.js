@@ -1,6 +1,37 @@
+//--------------------------------------Begin eBay API JSON callback-------------------
+
+function jsonpcallback(data) {
+        console.log(data.Item);
+
+        // Item 1 data
+        var urlOne = data.Item[0].ViewItemURLForNaturalSearch;
+        var titleOne = data.Item[0].Title;
+        var priceOne = data.Item[0].ConvertedCurrentPrice.Value;
+          console.log(urlOne);
+          console.log(titleOne);
+          console.log(priceOne);
+
+      // Item 2 data
+        var urlTwo = data.Item[1].ViewItemURLForNaturalSearch;
+        var titleTwo = data.Item[1].Title;
+        var priceTwo = data.Item[1].ConvertedCurrentPrice.Value;
+          console.log(urlTwo);
+          console.log(titleTwo);
+          console.log(priceTwo);
+
+      // Item 3 data
+        var urlThree = data.Item[2].ViewItemURLForNaturalSearch;
+        var titleThree = data.Item[2].Title;
+        var priceThree = data.Item[2].ConvertedCurrentPrice.Value;
+          console.log(urlThree);
+          console.log(titleThree);
+          console.log(priceThree);
+      }
+//--------------------------------------End eBay API JSON callback-----------------------
+
 $(document).ready(function() {
 
-    //---------------------------------------Blockchain API GET request-------------
+  //---------------------------------------Blockchain API GET request-------------
     // Chain all ajax request inside of $.when()
     // Manipulate all responses inside of .then(function(){});
     //API URL links
@@ -76,7 +107,7 @@ $(document).ready(function() {
             Chart.defaults.global.animation.duration = 2000;
             Chart.defaults.global.animation.easing = 'easeInOutQuart';
             Chart.defaults.global.title.fontSize = 30;
-            console.log(Chart.defaults);
+      Chart.defaults.global.defaultFontColor = '#ffffff';
             // Global plugin for text inside of dought chart
             // copied from chartjs github issues https://github.com/chartjs/Chart.js/issues/78
             Chart.pluginService.register({
@@ -140,27 +171,20 @@ $(document).ready(function() {
                 },
             });
             // end of plugin
-
             //bitcoin color rgba(255, 153, 0, 1)
             //bitcoin accent color rgba(250, 200, 37, 1)
-
             // Active doughtnut chart on page load.
             var mainChart = $('#mainChart');
             var myChart = new Chart(mainChart, {
                 type: 'pie',
                 data: {
-                    // labels: ['OK', 'WARNING'],
                     datasets: [{
-                        text: "1 BTC",
-                        // label: '# of Tomatoes',
-                        data: [10, 100],
+            data: [10],
                         backgroundColor: [
-                            'rgba(250, 200, 37, 1)',
-                            'rgba(255, 153, 0, 1)'
+              'rgba(250, 200, 37, 1)'
                         ],
                         borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)'
+              'rgba(255,99,132,1)'
                         ],
                         borderWidth: 1
                     }]
@@ -169,17 +193,15 @@ $(document).ready(function() {
                     cutoutPercentage: 80,
                     responsive: true,
                     maintainAspectRatio: true,
+          tooltips: {
+            enabled: false
+          },
                     elements: {
                         center: {
                             text: "1 BTC = 14,000 USD"
                         }
-                    },
-                    animation: {
-                        onComplete: function(animation) {
-
                         }
                     }
-                },
             });
             // Line chart displaying BTC market data.
             var chart1 = $('#lineChart');
@@ -188,7 +210,6 @@ $(document).ready(function() {
                 data: {
                     labels: ['First', 'Second', 'Third', 'Fourth'],
                     datasets: [{
-                        // label: "Numbers Per Month",
                         backgroundColor: 'rgba(250, 200, 37, 0.7)',
                         borderColor: 'rgba(255, 153, 0, 1)',
                         data: [2, 10, 4, 15],
@@ -209,10 +230,20 @@ $(document).ready(function() {
                             scaleLabel: {
                                 display: true,
                                 labelString: 'USD',
-                            },
-                        }, ],
                     },
-                },
+              gridLines: {
+                display: false,
+                color: '#ffffff'
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false,
+                color: '#ffffff'
+              }
+            }]
+          }
+        }
             });
             // Chart displaying different hashpools and hashrate.
             var chart2 = $('#barChart');
@@ -235,12 +266,22 @@ $(document).ready(function() {
                         text: "Hash Rates of Popular Mining Pools (Higher is better)"
                     },
                     scales: {
-                    	yAxes: [{
-                    		scaleLabel: {
-                    			display: true,
-                    			labelString: 'Gigahash/sec'
-                    		}
-                    	}]
+                      yAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Gigahash/sec'
+              },
+              gridLines: {
+                display: false,
+                color: '#ffffff'
+                        }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false,
+                color: '#ffffff'
+              }
+                      }]
                     }
                 }
             });
@@ -285,7 +326,17 @@ $(document).ready(function() {
                             scaleLabel: {
                                 display: true,
                                 labelString: '# of Transactions per Day'
+              },
+              gridLines: {
+                display: false,
+                color: '#ffffff'
                             }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false,
+                color: '#ffffff'
+              }
                         }]
                     }
                 }
@@ -308,6 +359,36 @@ $(document).ready(function() {
         });
 
     }); // end of $.when().then() function
+  //----------------------End Blockchain API GET request----------------------
 
+  //----------------------Begin eBay API GET request on click function------
+	$("#search-button").on("click", function() {
 
-}); // end doc ready function
+      var queryKeyword = $("#user-input").val().trim();
+
+      var queryURL = "http://open.api.ebay.com/shopping?" +
+        "callname=FindItems&" + 
+        "appid=GordonBl-BitBay-PRD-85d7504c4-e49e3c45&" + 
+        "version=1015&" + 
+        "siteid=0&" + 
+        "QueryKeywords=" + 
+        queryKeyword + 
+        "&ItemSort=BestMatch&" + 
+        "responseencoding=JSON&" + 
+        "MaxEntries=3&" +
+        "callbackname=jsonpcallback";
+
+        // Clear input on click event
+        $("#user-input").val("");
+
+      $.ajax({
+          url: queryURL,
+          method: "GET",
+          dataType: "jsonp"
+      });
+
+  });
+  //--------------------End eBay API GET request on click function--------------
+
+});
+// end doc ready function

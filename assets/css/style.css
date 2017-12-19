@@ -1,52 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+
+}
+
 body {
-    width: 100%;
-    height: 100%;
-    background-color: #042E2C;
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#042E2C, endColorstr=#041E1F);
-    background-image: -moz-linear-gradient(left, #042E2C 0%, #041E1F 100%, #032723 0%, #036D6D 8%, #69CDC8 67%);
-    background-image: linear-gradient(left, #042E2C 0%, #041E1F 100%, #032723 0%, #036D6D 8%, #69CDC8 67%);
-    background-image: -webkit-linear-gradient(left, #042E2C 0%, #041E1F 100%, #032723 0%, #036D6D 8%, #69CDC8 67%);
-    background-image: -o-linear-gradient(left, #042E2C 0%, #041E1F 100%, #032723 0%, #036D6D 8%, #69CDC8 67%);
-    background-image: -ms-linear-gradient(left, #042E2C 0%, #041E1F 100%, #032723 0%, #036D6D 8%, #69CDC8 67%);
-    background-image: -webkit-gradient(linear, left bottom, right bottom, color-stop(0%, #042E2C), color-stop(100%, #041E1F), color-stop(0%, #032723), color-stop(8%, #036D6D), color-stop(67%, #69CDC8));
+  margin-bottom: 100px;
+  width: 100%;
+  height: 100%;
+  background-color: #042E2C;
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#042E2C, endColorstr=#041E1F);
+  background-image: -moz-linear-gradient(left, #042E2C 0%, #041E1F 100%, #032723 0%, #036D6D 8%, #69CDC8 67%);
+  background-image: linear-gradient(left, #042E2C 0%, #041E1F 100%, #032723 0%, #036D6D 8%, #69CDC8 67%);
+  background-image: -webkit-linear-gradient(left, #042E2C 0%, #041E1F 100%, #032723 0%, #036D6D 8%, #69CDC8 67%);
+  background-image: -o-linear-gradient(left, #042E2C 0%, #041E1F 100%, #032723 0%, #036D6D 8%, #69CDC8 67%);
+  background-image: -ms-linear-gradient(left, #042E2C 0%, #041E1F 100%, #032723 0%, #036D6D 8%, #69CDC8 67%);
+  background-image: -webkit-gradient(linear, left bottom, right bottom, color-stop(0%, #042E2C), color-stop(100%, #041E1F), color-stop(0%, #032723), color-stop(8%, #036D6D), color-stop(67%, #69CDC8));
 }
 
 .input-group {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 
 .carousel {
     /* border-radius: 55px 55px 55px 55px; */
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .carousel .carousel-inner img {
-    width: 100%;
-    height: 20em;
-    object-fit: cover;
-    overflow: hidden;
+  width: 100%;
+  height: 20em;
+  object-fit: cover;
+  overflow: hidden;
 }
 
-h1 {
-
-	text-align: center;
- 	font-family: 'ROBOTECHGPRegular'; 
-    font-weight: bold; 
-    font-style: normal; 
-	font-size: 110px;
-	
+.title {
+  text-align: center;
+  font-family: 'ROBOTECHGPRegular';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 110px;
 }
 
-.header img {
-  float: left;
-  width: 110px;
-  height: 110px;
- 
+/* UI work */
+.navbar-Text {
+  float: right;
 }
 
-.header h1 {
-  position: relative;
-  top: 20px;
- 
+.logo {
+  width: 100px;
+  height: auto;
 }
 
+.charts {
+  margin-bottom: 30px;
+}
+
+#searchbar-section {
+  margin-bottom: 10px;
+}
+
+#footer {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  height: 80px;
+  background-color: black;
+}
+
+.footer-block {
+  text-align: center;
+  margin: 20px 0;
+  color: white;
+}
+
+.fa-github {
+  color: white;
+}
