@@ -72,28 +72,34 @@ body {
 #result-1 {
   background-color: black;
   color: gold;
+  padding: 10px;
   opacity: 0.5;
-  height: 200px;
+  height: 300px;
   width: 33%;
   min-width: 200px;
+  word-wrap: break-word;
 }
 
 #result-2 {
   background-color: black;
   color: gold;
+  padding: 10px;
   opacity: 0.5;
-  height: 200px;
+  height: 300px;
   width: 33%;
   min-width: 200px;
+  word-wrap: break-word;
 }
 
 #result-3 {
   background-color: black;
   color: gold;
+  padding: 10px;
   opacity: 0.5;
-  height: 200px;
+  height: 300px;
   width: 33%;
   min-width: 200px;
+  word-wrap: break-word;
 }
 
 #widget-container {
