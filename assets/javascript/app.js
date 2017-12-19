@@ -27,7 +27,7 @@ function jsonpcallback(data) {
           console.log(titleThree);
           console.log(priceThree);
       }
-      
+
 //--------------------------------------End eBay API JSON callback-----------------------
 
 $(document).ready(function() {

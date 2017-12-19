@@ -63,8 +63,15 @@ body {
   margin-bottom: 10px;
 }
 
+#result-1 {
+  background-color: black;
+  color: white;
+}
+
 #widget-container {
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 #bitcoin-news-widget {
