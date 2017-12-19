@@ -26,11 +26,20 @@ function jsonpcallback(data) {
           console.log(urlThree);
           console.log(titleThree);
           console.log(priceThree);
+
+        $("#result-1").show();
+        $("#result-2").show();
+        $("#result-3").show();
+        
       }
 
 //--------------------------------------End eBay API JSON callback-----------------------
 
 $(document).ready(function() {
+
+    $("#result-1").hide();
+    $("#result-2").hide();
+    $("#result-3").hide();
 
   //---------------------------------------Blockchain API GET request-------------
     // Chain all ajax request inside of $.when()
