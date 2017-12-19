@@ -31,7 +31,7 @@ function jsonpcallback(data) {
 
 $(document).ready(function() {
 
-  //------------------------------------Begin Blockchain API GET request-----------------
+  //---------------------------------------Blockchain API GET request-------------
     // Chain all ajax request inside of $.when()
     // Manipulate all responses inside of .then(function(){});
     //API URL links
@@ -107,7 +107,7 @@ $(document).ready(function() {
             Chart.defaults.global.animation.duration = 2000;
             Chart.defaults.global.animation.easing = 'easeInOutQuart';
             Chart.defaults.global.title.fontSize = 30;
-            console.log(Chart.defaults);
+      Chart.defaults.global.defaultFontColor = '#ffffff';
             // Global plugin for text inside of dought chart
             // copied from chartjs github issues https://github.com/chartjs/Chart.js/issues/78
             Chart.pluginService.register({
@@ -171,27 +171,20 @@ $(document).ready(function() {
                 },
             });
             // end of plugin
-
             //bitcoin color rgba(255, 153, 0, 1)
             //bitcoin accent color rgba(250, 200, 37, 1)
-
             // Active doughtnut chart on page load.
             var mainChart = $('#mainChart');
             var myChart = new Chart(mainChart, {
                 type: 'pie',
                 data: {
-                    // labels: ['OK', 'WARNING'],
                     datasets: [{
-                        text: "1 BTC",
-                        // label: '# of Tomatoes',
-                        data: [10, 100],
+            data: [10],
                         backgroundColor: [
-                            'rgba(250, 200, 37, 1)',
-                            'rgba(255, 153, 0, 1)'
+              'rgba(250, 200, 37, 1)'
                         ],
                         borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)'
+              'rgba(255,99,132,1)'
                         ],
                         borderWidth: 1
                     }]
@@ -200,17 +193,15 @@ $(document).ready(function() {
                     cutoutPercentage: 80,
                     responsive: true,
                     maintainAspectRatio: true,
+          tooltips: {
+            enabled: false
+          },
                     elements: {
                         center: {
                             text: "1 BTC = 14,000 USD"
                         }
-                    },
-                    animation: {
-                        onComplete: function(animation) {
-
                         }
                     }
-                },
             });
             // Line chart displaying BTC market data.
             var chart1 = $('#lineChart');
@@ -219,7 +210,6 @@ $(document).ready(function() {
                 data: {
                     labels: ['First', 'Second', 'Third', 'Fourth'],
                     datasets: [{
-                        // label: "Numbers Per Month",
                         backgroundColor: 'rgba(250, 200, 37, 0.7)',
                         borderColor: 'rgba(255, 153, 0, 1)',
                         data: [2, 10, 4, 15],
@@ -240,10 +230,20 @@ $(document).ready(function() {
                             scaleLabel: {
                                 display: true,
                                 labelString: 'USD',
-                            },
-                        }, ],
                     },
-                },
+              gridLines: {
+                display: false,
+                color: '#ffffff'
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false,
+                color: '#ffffff'
+              }
+            }]
+          }
+        }
             });
             // Chart displaying different hashpools and hashrate.
             var chart2 = $('#barChart');
@@ -270,7 +270,17 @@ $(document).ready(function() {
                         scaleLabel: {
                           display: true,
                           labelString: 'Gigahash/sec'
+              },
+              gridLines: {
+                display: false,
+                color: '#ffffff'
                         }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false,
+                color: '#ffffff'
+              }
                       }]
                     }
                 }
@@ -316,7 +326,17 @@ $(document).ready(function() {
                             scaleLabel: {
                                 display: true,
                                 labelString: '# of Transactions per Day'
+              },
+              gridLines: {
+                display: false,
+                color: '#ffffff'
                             }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false,
+                color: '#ffffff'
+              }
                         }]
                     }
                 }
