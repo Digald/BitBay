@@ -410,7 +410,7 @@ $(document).ready(function() {
 
       var queryKeyword = $("#user-input").val().trim();
 
-      var queryURL = "http://open.api.ebay.com/shopping?" +
+      var queryURL = "https://open.api.ebay.com/shopping?" +
         "callname=FindItems&" + 
         "appid=GordonBl-BitBay-PRD-85d7504c4-e49e3c45&" + 
         "version=1015&" + 
