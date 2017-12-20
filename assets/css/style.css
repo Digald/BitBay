@@ -74,9 +74,9 @@ body {
   color: gold;
   padding: 10px;
   opacity: 0.5;
-  height: 300px;
   width: 33%;
   min-width: 200px;
+  min-height: 200px;
   word-wrap: break-word;
 }
 
@@ -85,9 +85,9 @@ body {
   color: gold;
   padding: 10px;
   opacity: 0.5;
-  height: 300px;
   width: 33%;
   min-width: 200px;
+  min-height: 200px;
   word-wrap: break-word;
 }
 
@@ -96,9 +96,9 @@ body {
   color: gold;
   padding: 10px;
   opacity: 0.5;
-  height: 300px;
   width: 33%;
   min-width: 200px;
+  min-height: 200px;
   word-wrap: break-word;
 }
 
