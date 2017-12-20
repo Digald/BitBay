@@ -7,37 +7,36 @@ function jsonpcallback(data) {
         var urlOne = data.Item[0].ViewItemURLForNaturalSearch;
         var titleOne = data.Item[0].Title;
         var priceOne = data.Item[0].ConvertedCurrentPrice.Value;
-          console.log(urlOne);
-          console.log(titleOne);
-          console.log(priceOne);
 
     // Item 2 data
         var urlTwo = data.Item[1].ViewItemURLForNaturalSearch;
         var titleTwo = data.Item[1].Title;
         var priceTwo = data.Item[1].ConvertedCurrentPrice.Value;
-          console.log(urlTwo);
-          console.log(titleTwo);
-          console.log(priceTwo);
 
     // Item 3 data
         var urlThree = data.Item[2].ViewItemURLForNaturalSearch;
         var titleThree = data.Item[2].Title;
         var priceThree = data.Item[2].ConvertedCurrentPrice.Value;
-          console.log(urlThree);
-          console.log(titleThree);
-          console.log(priceThree);
 
     //Results Container jQuery
         $("#result-1").show().html("<p>" + titleOne + "</p>");
         $("#result-2").show().html("<p>" + titleTwo + "</p>");
         $("#result-3").show().html("<p>" + titleThree + "</p>");
         $("#result-1").append("<p>" + urlOne + "</p>");
-        $("#result-1").append("<p>" + priceOne + "</p>");
+        $("#result-1").append("<p>" + "Price in USD: $" + priceOne + "</p>");
         $("#result-2").append("<p>" + urlTwo + "</p>");
-        $("#result-2").append("<p>" + priceTwo + "</p>");
+        $("#result-2").append("<p>" + "Price in USD: $" + priceTwo + "</p>");
         $("#result-3").append("<p>" + urlThree + "</p>");
-        $("#result-3").append("<p>" + priceThree + "</p>");
+        $("#result-3").append("<p>" + "Price in USD: $" + priceThree + "</p>");
 
+  //Bitcoin conversions
+  // I had to store the bitcoin number in a hidden html element to beat the scope issues
+  // the convertedPrice variable retrieves it and it can be used in this function
+  // the math to convert USD to bitcoin is just: price_in_USD / covertPrice
+  var convertPrice = $("#storeBTC").html();
+  $("#result-1").append("<p>" + parseFloat(priceOne / convertPrice).toFixed(8) + " BTC</p>");
+  $("#result-2").append("<p>" + parseFloat(priceTwo / convertPrice).toFixed(8) + " BTC</p>");
+  $("#result-3").append("<p>" + parseFloat(priceThree / convertPrice).toFixed(8) + " BTC</p>")
       }
 
 //--------------------------------------End eBay API JSON callback-----------------------
@@ -52,17 +51,19 @@ $(document).ready(function() {
     // Chain all ajax request inside of $.when()
     // Manipulate all responses inside of .then(function(){});
     //API URL links
-    var bitQueryURL = 'https://api.blockchain.info/stats?cors=true';
-    var priceGraphURL = 'https://api.blockchain.info/charts/market-price?$timespan=30days&format=json&cors=true';
-    var hashURL = 'https://api.blockchain.info/pools?timespan=10days&cors=true';
-    var transactionURL = 'https://api.blockchain.info/charts/n-transactions?timespan=30days&cors=true';
-    var outputURL = 'https://api.blockchain.info/charts/output-volume?timespan=30days&cors=true';
+  var myKey = "0c450e4c-8ea7-4c5e-976d-879cc34f087c";
+  var bitQueryURL = 'https://api.blockchain.info/stats?cors=true&key=' + myKey;
+  var priceGraphURL = 'https://api.blockchain.info/charts/market-price?timespan=30days&format=json&cors=true&key=' + myKey;
+  var hashURL = 'https://api.blockchain.info/pools?timespan=10days&cors=true&key=' + myKey;
+  var transactionURL = 'https://api.blockchain.info/charts/n-transactions?timespan=30days&cors=true&key=' + myKey;
+  var outputURL = 'https://api.blockchain.info/charts/output-volume?timespan=30days&cors=true&key=' + myKey;
     //API output variables
     var gStats;
     var priceGraph;
     var hashPool;
     var transactionCount;
     var outputValue;
+  var convertBTC;
 
     $.when(
         //General Stats
@@ -107,9 +108,24 @@ $(document).ready(function() {
         var dateRange = [];
         var convert;
         for (var i = 0; i < transactionCount.values.length; i++) {
-            convert = moment.unix(transactionCount.values[i].x).format('MMM Do');
+      convert = moment.unix(transactionCount.values[i].x).format("MMM Do");
             dateRange.push(convert);
         }
+    //Following functions organize the values from our APIs into an array for ease of access.
+    var marketValue30Day = [];
+    for (var i = 0; i < priceGraph.values.length; i++) {
+      marketValue30Day.push(priceGraph.values[i].y);
+    }
+    var transactionValue30Day = [];
+    for (var i = 0; i < transactionCount.values.length; i++) {
+      transactionValue30Day.push(transactionCount.values[i].y);
+    }
+    var outputValue30Day = [];
+    for (var i = 0; i < outputValue.values.length; i++) {
+      outputValue30Day.push(outputValue.values[i].y);
+    }
+    var hashPoolNameList = Object.keys(hashPool);
+    var hashPoolValueList = Object.values(hashPool);
 
         // chartJS work goes here
         // Carousel options.
@@ -198,12 +214,12 @@ $(document).ready(function() {
                     datasets: [{
             data: [10],
                         backgroundColor: [
-              'rgba(250, 200, 37, 1)'
+              'rgba(255, 153, 0, 1)'
                         ],
                         borderColor: [
-              'rgba(255,99,132,1)'
+              'rgba(250, 200, 37, 1)'
                         ],
-                        borderWidth: 1
+            borderWidth: 2
                     }]
                 },
                 options: {
@@ -215,7 +231,7 @@ $(document).ready(function() {
           },
                     elements: {
                         center: {
-                            text: "1 BTC = 14,000 USD"
+              text: "1 BTC = " + gStats.market_price_usd + " USD"
                         }
                         }
                     }
@@ -225,11 +241,11 @@ $(document).ready(function() {
             var lineChart = new Chart(chart1, {
                 type: 'line',
                 data: {
-                    labels: ['First', 'Second', 'Third', 'Fourth'],
+          labels: dateRange,
                     datasets: [{
-                        backgroundColor: 'rgba(250, 200, 37, 0.7)',
-                        borderColor: 'rgba(255, 153, 0, 1)',
-                        data: [2, 10, 4, 15],
+            backgroundColor: 'rgba(255, 153, 0, 1)',
+            borderColor: 'rgba(250, 200, 37, 1)',
+            data: marketValue30Day,
                     }, ],
                 },
                 options: {
@@ -265,17 +281,20 @@ $(document).ready(function() {
             // Chart displaying different hashpools and hashrate.
             var chart2 = $('#barChart');
             var bar = new Chart(chart2, {
-                type: 'bar',
+        type: 'horizontalBar',
                 data: {
-                    labels: ['Thing1', 'Thing2', 'Thing3'],
+          labels: hashPoolNameList,
                     datasets: [{
-                        backgroundColor: 'rgba(250, 200, 37, 0.7)',
-                        borderColor: 'rgba(255, 153, 0, 1)',
-                        // label: 'Measured in giga',
-                        data: [34, 23, 67],
+            borderWidth: 2,
+            backgroundColor: 'rgba(255, 153, 0, 1)',
+            borderColor: 'rgba(250, 200, 37, 1)',
+            data: hashPoolValueList,
                     }, ]
                 },
                 options: {
+          legend: {
+            display: false
+          },
                     responsive: true,
                     maintainAspectRatio: true,
                     title: {
@@ -285,8 +304,8 @@ $(document).ready(function() {
                     scales: {
                       yAxes: [{
                         scaleLabel: {
-                          display: true,
-                          labelString: 'Gigahash/sec'
+                display: false,
+                labelString: 'Popular Pool'
               },
               gridLines: {
                 display: false,
@@ -294,6 +313,10 @@ $(document).ready(function() {
                         }
             }],
             xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Gigahash/sec'
+              },
               gridLines: {
                 display: false,
                 color: '#ffffff'
@@ -304,31 +327,31 @@ $(document).ready(function() {
             });
 
             //Bubble showing transactions per day with bubble size relative to transaction size
+      var scaledR = outputValue30Day.map(function(x) {
+        return x/100000;
+      });
+      var xArray = dateRange;
+      var yArray = transactionValue30Day;
+      var rArray = scaledR;
+      var bubbleData = [];
+      xArray.forEach(function(e,i) {
+        bubbleData.push({
+          x: parseFloat(e),
+          y: parseFloat(yArray[i]),
+          r: parseFloat(rArray[i])
+        });
+      });
             var chart3 = $("#bubbleChart");
             var bubbleChar = new Chart(chart3, {
                 type: 'bubble',
                 data: {
-                    labels: ['Time1', 'Time2', 'Time3', 'Time4'],
+          labels: dateRange,
                     datasets: [{
-                        label: "Relative Transaction Size",
-                        backgroundColor: 'rgba(250, 200, 37, 0.7)',
-                        borderColor: 'rgba(255, 153, 0, 1)',
-                        data: [{
-                                x: 3,
-                                y: 4,
-                                r: 4
-                            },
-                            {
-                                x: 24,
-                                y: 15,
-                                r: 45
-                            },
-                            {
-                                x: 43,
-                                y: 34,
-                                r: 23
-                            }
-                        ]
+            borderWidth: 2,
+            label: "Relative Transaction Size (1/100,000 BTC)",
+            backgroundColor: 'rgba(255, 153, 0, 0.5)',
+            borderColor: 'rgba(250, 200, 37, 1)',
+            data: bubbleData
                     }]
                 },
                 options: {
@@ -350,6 +373,8 @@ $(document).ready(function() {
                             }
             }],
             xAxes: [{
+              type: 'category',
+              labels: dateRange,
               gridLines: {
                 display: false,
                 color: '#ffffff'
@@ -372,9 +397,11 @@ $(document).ready(function() {
             generateChart();
         }
         $('#carouselExampleControls').on('slid.bs.carousel', function() {
-            resetChart();
-        });
 
+      generateChart();
+    });
+    convertBTC = gStats.market_price_usd;
+    $("#storeBTC").prepend(convertBTC).hide();
     }); // end of $.when().then() function
   //----------------------End Blockchain API GET request----------------------
 

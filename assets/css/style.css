@@ -67,6 +67,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding-bottom: 10px;
 }
 
 #result-1 {
