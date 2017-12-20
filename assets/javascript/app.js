@@ -19,9 +19,9 @@ function jsonpcallback(data) {
         var priceThree = data.Item[2].ConvertedCurrentPrice.Value;
 
     //Results Container jQuery
-        $("#result-1").show().html("<p>" + titleOne + "</p>");
-        $("#result-2").show().html("<p>" + titleTwo + "</p>");
-        $("#result-3").show().html("<p>" + titleThree + "</p>");
+        $("#result-1").show().html("<h5><strong>" + titleOne + "</strong></h5>");
+        $("#result-2").show().html("<h5><strong>" + titleTwo + "</strong></h5>");
+        $("#result-3").show().html("<h5><strong>" + titleThree + "</strong></h5>");
         $("#result-1").append("<p>" + urlOne + "</p>");
         $("#result-1").append("<p>" + "Price in USD: $" + priceOne + "</p>");
         $("#result-2").append("<p>" + urlTwo + "</p>");
