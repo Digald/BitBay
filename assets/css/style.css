@@ -5,7 +5,6 @@
 html {
   min-height: 100%;
   position: relative;
-
 }
 
 body {
@@ -23,7 +22,7 @@ body {
 }
 
 .input-group {
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .carousel {
@@ -62,6 +61,62 @@ body {
 
 #searchbar-section {
   margin-bottom: 10px;
+}
+
+#results-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+}
+
+#result-1 {
+  background-color: black;
+  color: gold;
+  padding: 10px;
+  opacity: 0.5;
+  width: 33%;
+  min-width: 200px;
+  min-height: 200px;
+  word-wrap: break-word;
+}
+
+#result-2 {
+  background-color: black;
+  color: gold;
+  padding: 10px;
+  opacity: 0.5;
+  width: 33%;
+  min-width: 200px;
+  min-height: 200px;
+  word-wrap: break-word;
+}
+
+#result-3 {
+  background-color: black;
+  color: gold;
+  padding: 10px;
+  opacity: 0.5;
+  width: 33%;
+  min-width: 200px;
+  min-height: 200px;
+  word-wrap: break-word;
+}
+
+#widget-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#news-widget {
+  width: 50%;
+  min-width: 200px;
+}
+
+#forum-widget {
+  width: 50%;
+  min-width: 200px;
 }
 
 #footer {
