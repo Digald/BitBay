@@ -22,11 +22,11 @@ function jsonpcallback(data) {
         $("#result-1").show().html("<h5><strong>" + titleOne + "</strong></h5>");
         $("#result-2").show().html("<h5><strong>" + titleTwo + "</strong></h5>");
         $("#result-3").show().html("<h5><strong>" + titleThree + "</strong></h5>");
-        $("#result-1").append(urlOne);
+        $("#result-1").append("<a target='_blank' href=" + urlOne + ">Click Here for Listing</a>");
         $("#result-1").append("<p>" + "Price in USD: $" + priceOne + "</p>");
-        $("#result-2").append(urlTwo);
+        $("#result-2").append("<a target='_blank' href=" + urlTwo + ">Click Here for Listing</a>");
         $("#result-2").append("<p>" + "Price in USD: $" + priceTwo + "</p>");
-        $("#result-3").append(urlThree);
+        $("#result-3").append("<a target='_blank' href=" + urlThree + ">Click Here for Listing</a>");
         $("#result-3").append("<p>" + "Price in USD: $" + priceThree + "</p>");
 
   //Bitcoin conversions
