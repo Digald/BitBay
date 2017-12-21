@@ -21,6 +21,10 @@ body {
   background-image: -webkit-gradient(linear, left bottom, right bottom, color-stop(0%, #042E2C), color-stop(100%, #041E1F), color-stop(0%, #032723), color-stop(8%, #036D6D), color-stop(67%, #69CDC8));
 }
 
+a {
+  color: white;
+}
+
 .input-group {
   padding-top: 10px;
 }
