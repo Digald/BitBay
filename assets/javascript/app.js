@@ -1,27 +1,37 @@
 //--------------------------------------Begin eBay API JSON callback-------------------
 
+
 function jsonpcallback(data) {
         console.log(data.Item);
+// Submit the request
 
     // Item 1 data
         var urlOne = data.Item[0].ViewItemURLForNaturalSearch;
         var titleOne = data.Item[0].Title;
+        var onePic = data.Item[0].GalleryURL;
         var priceOne = data.Item[0].ConvertedCurrentPrice.Value;
 
     // Item 2 data
         var urlTwo = data.Item[1].ViewItemURLForNaturalSearch;
         var titleTwo = data.Item[1].Title;
+        var twoPic = data.Item[1].GalleryURL;
         var priceTwo = data.Item[1].ConvertedCurrentPrice.Value;
 
     // Item 3 data
         var urlThree = data.Item[2].ViewItemURLForNaturalSearch;
         var titleThree = data.Item[2].Title;
+        var threePic = data.Item[2].GalleryURL;
         var priceThree = data.Item[2].ConvertedCurrentPrice.Value;
+
+
 
     //Results Container jQuery
         $("#result-1").show().html("<h5><strong>" + titleOne + "</strong></h5>");
         $("#result-2").show().html("<h5><strong>" + titleTwo + "</strong></h5>");
         $("#result-3").show().html("<h5><strong>" + titleThree + "</strong></h5>");
+        $("#result-1").append("<p>" + '<img src="' + onePic + '" border="0" height=150px width=150px>' + "</p>");
+        $("#result-2").append("<p>" + '<img src="' + twoPic + '" border="0" height=150px width=150px>' + "</p>");
+        $("#result-3").append("<p>" + '<img src="' + threePic + '" border="0" height=150px width=150px>' + "</p>");
         $("#result-1").append("<a target='_blank' href=" + urlOne + ">Click Here for Listing</a>");
         $("#result-1").append("<p>" + "Price in USD: $" + priceOne + "</p>");
         $("#result-2").append("<a target='_blank' href=" + urlTwo + ">Click Here for Listing</a>");
