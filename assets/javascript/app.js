@@ -29,9 +29,9 @@ function jsonpcallback(data) {
         $("#result-1").show().html("<h5><strong>" + titleOne + "</strong></h5>");
         $("#result-2").show().html("<h5><strong>" + titleTwo + "</strong></h5>");
         $("#result-3").show().html("<h5><strong>" + titleThree + "</strong></h5>");
-        $("#result-1").append("<p>" + '<img src="' + onePic + '" border="0" height=150px width=150px>' + "</p>");
-        $("#result-2").append("<p>" + '<img src="' + twoPic + '" border="0" height=150px width=150px>' + "</p>");
-        $("#result-3").append("<p>" + '<img src="' + threePic + '" border="0" height=150px width=150px>' + "</p>");
+        $("#result-1").append("<p>" + '<img src="' + onePic + '" border="0">' + "</p>");
+        $("#result-2").append("<p>" + '<img src="' + twoPic + '" border="0">' + "</p>");
+        $("#result-3").append("<p>" + '<img src="' + threePic + '" border="0">' + "</p>");
         $("#result-1").append("<a target='_blank' href=" + urlOne + ">Click Here for Listing</a>");
         $("#result-1").append("<p>" + "Price in USD: $" + priceOne + "</p>");
         $("#result-2").append("<a target='_blank' href=" + urlTwo + ">Click Here for Listing</a>");

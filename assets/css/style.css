@@ -68,6 +68,7 @@ a {
   justify-content: space-between;
   flex-wrap: wrap;
   padding-bottom: 10px;
+
 }
 
 #result-1 {
@@ -80,6 +81,7 @@ a {
   min-height: 200px;
   word-wrap: break-word;
 }
+
 
 #result-2 {
   background-color: black;
@@ -102,6 +104,7 @@ a {
   min-height: 200px;
   word-wrap: break-word;
 }
+
 
 #widget-container {
   display: flex;
