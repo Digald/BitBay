@@ -145,7 +145,6 @@ $(document).ready(function() {
     // Function containing all of the carousel charts.
     function generateChart() {
       // Global Chartjs values
-      Chart.defaults.scale.ticks.beginAtZero = true;
       Chart.defaults.global.tooltips.enabled = true;
       Chart.defaults.global.animation.duration = 2000;
       Chart.defaults.global.animation.easing = 'easeInOutQuart';
@@ -241,7 +240,7 @@ $(document).ready(function() {
           },
           elements: {
             center: {
-              text: "1 BTC = " + gStats.market_price_usd + " USD"
+              text: "1 BTC = " + gStats.market_price_usd.toFixed(2) + " USD"
             }
           }
         }
